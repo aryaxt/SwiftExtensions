@@ -6,7 +6,7 @@
 //  Copyright © 2015 aryaxt. All rights reserved.
 //
 
-extension CollectionType {
+public extension CollectionType {
     
     /**
     Determines whether an object with a specified closure exists or not
@@ -15,7 +15,7 @@ extension CollectionType {
     
     - returns: A boolean that determines whether the state was found or not
     */
-    func any(closure: Generator.Element -> Bool) -> Bool {
+    public func any(closure: Generator.Element -> Bool) -> Bool {
         for element in self {
             if closure(element) { return true }
         }
@@ -30,7 +30,7 @@ extension CollectionType {
     
     - returns: A boolean that determines whether the state was found on all opbjects or not
     */
-    func all(closure: Generator.Element -> Bool) -> Bool {
+    public func all(closure: Generator.Element -> Bool) -> Bool {
         for element in self {
             if !closure(element) { return false }
         }
@@ -52,7 +52,7 @@ extension CollectionType {
     
     - returns: a dictionary with key is as described by the closure, and the value is an array
     */
-    func groupBy<T: Hashable>(closure: Generator.Element -> T) -> [T: [Generator.Element]] {
+    public func groupBy<T: Hashable>(closure: Generator.Element -> T) -> [T: [Generator.Element]] {
         var dict = Dictionary<T, [Generator.Element]>()
         
         for element in self {
